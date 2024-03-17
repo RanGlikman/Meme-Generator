@@ -3,6 +3,8 @@
 let gCanvas
 let gCtx
 let currentImage = null
+let fontSize = 30
+
 function onInit() {
     gCanvas = document.querySelector("canvas")
     gCtx = gCanvas.getContext("2d")
@@ -23,10 +25,11 @@ function drawImageAndText() {
     const text = document.querySelector(".text-input").value
     const color = document.querySelector(".color-input").value
     if (text) {
-        gCtx.font = "30px Arial"
+        gCtx.font = `${fontSize}px Impact`
         gCtx.fillStyle = color
         gCtx.textAlign = "center"
         gCtx.fillText(text, gCanvas.width / 2, gCanvas.height - 50)
+        gCtx.lineWidth = fontSize / 20
     }
 }
 
@@ -53,4 +56,11 @@ function loadImages() {
 
         imageContainer.appendChild(img)
     }
+}
+
+function changeFontSize(change) {
+    fontSize += change
+    fontSize = Math.max(fontSize, 10)
+    fontSize = Math.min(fontSize, 100)
+    drawImageAndText()
 }

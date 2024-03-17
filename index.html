@@ -11,7 +11,12 @@
     <h1>Meme Generator</h1>
     <canvas class="meme-canvas" width="500" height="500"></canvas>
     <input type="text" class="text-input" placeholder="Enter meme text here">
-    <input type="color" class="color-input" value="#FFFFFF" onchange="drawImageAndText()">
+    <div class="controls">
+        <input type="color" class="color-input" value="#FFFFFF" onchange="drawImageAndText()">
+        <button class="btn-font-size" onclick="changeFontSize(-2)">A-</button>
+        <button class="btn-font-size" onclick="changeFontSize(2)">A+</button>
+    </div>
+
     <a class="download-btn" href="#" onclick="onDownloadCanvas(this)">Download</a>
 
     <h3>Select an image</h3>
