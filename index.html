@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Meme Generator</title>
+    <link rel="stylesheet" href="css/main.css">
+</head>
+
+<body onload="onInit()">
+    <h1>Meme Generator</h1>
+    <canvas class="meme-canvas" width="500" height="500"></canvas>
+    <input type="text" class="text-input" placeholder="Enter meme text here">
+    <input type="color" class="color-input" value="#FFFFFF" onchange="drawImageAndText()">
+    <a class="download-btn" href="#" onclick="onDownloadCanvas(this)">Download</a>
+
+    <h3>Select an image</h3>
+    <section class="select-img-container">
+    </section>
+
+    <script src="js/main.js"></script>
+</body>
+
+</html>
