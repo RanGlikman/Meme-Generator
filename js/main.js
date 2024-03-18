@@ -5,8 +5,15 @@ document.addEventListener('DOMContentLoaded', () => {
 
     const textInput = document.querySelector('.text-input')
     textInput.addEventListener('input', () => {
-        setLineTxt(textInput.value)
-        renderMeme()
+        renderMeme(textInput.value)
+    })
+    textInput.addEventListener('keydown', event => {
+        if (event.key === 'Enter') {
+            event.preventDefault() // Prevent the default action to avoid form submission //?
+            addLineTxt(textInput.value)
+            renderMeme()
+            textInput.value = ''
+        }
     })
 
     const colorInput = document.querySelector('.color-input')

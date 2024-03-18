@@ -2,7 +2,7 @@
 
 let gMeme = {
     selectedImgId: 1,
-    txt: '',
+    txts: [],
     size: 30,
     color: '#FFFFFF',
 }
@@ -11,8 +11,10 @@ function getMeme() {
     return gMeme
 }
 
-function setLineTxt(txt) {
-    gMeme.txt = txt
+function addLineTxt(txt) {
+    if (txt.trim() !== '') {
+        gMeme.txts.push(txt)
+    }
 }
 
 function setImage(id) {

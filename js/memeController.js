@@ -1,18 +1,36 @@
 'use strict'
 
-function renderMeme() {
+function renderMeme(currentText = '') {
     const canvas = document.querySelector('.meme-canvas')
     const ctx = canvas.getContext('2d')
     const meme = getMeme()
 
     const img = new Image()
     img.src = `img/memes/${meme.selectedImgId}.jpg`
-    img.onload = () => {
+
+    const drawContent = () => {
+        ctx.clearRect(0, 0, canvas.width, canvas.height)
         ctx.drawImage(img, 0, 0, canvas.width, canvas.height)
-        // Draw text
         ctx.fillStyle = meme.color
         ctx.font = `${meme.size}px Arial`
         ctx.textAlign = 'center'
-        ctx.fillText(meme.txt, canvas.width / 2, canvas.height - 50)
+
+        meme.txts.forEach((txt, index) => {
+            ctx.fillText(txt, canvas.width / 2, canvas.height - 50 - index * meme.size)
+        })
+
+        if (currentText) {
+            ctx.fillText(
+                currentText,
+                canvas.width / 2,
+                canvas.height - 50 - meme.txts.length * meme.size
+            )
+        }
+    }
+
+    if (img.complete) {
+        drawContent()
+    } else {
+        img.onload = drawContent
     }
 }
