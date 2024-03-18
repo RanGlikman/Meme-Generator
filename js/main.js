@@ -40,3 +40,17 @@ document.addEventListener('DOMContentLoaded', () => {
         downloadBtn.href = dataURL
     })
 })
+
+document.querySelector('.switch-text-btn').addEventListener('click', () => {
+    if (gMeme.txts.length > 0) {
+        gMeme.selectedTxtIndex = (gMeme.selectedTxtIndex + 1) % gMeme.txts.length
+        gMeme.highlightSelected = true
+        console.log(`Current selected text index: ${gMeme.selectedTxtIndex}`)
+        renderMeme()
+    }
+})
+
+document.querySelector('.deselect-switch-text-btn').addEventListener('click', () => {
+    gMeme.highlightSelected = false
+    renderMeme()
+})

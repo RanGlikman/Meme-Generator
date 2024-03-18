@@ -19,6 +19,15 @@ function renderMeme(currentText = '') {
             ctx.fillText(txt, canvas.width / 2, canvas.height - 50 - index * meme.size)
         })
 
+        meme.txts.forEach((txt, index) => {
+            if (index === gMeme.selectedTxtIndex && gMeme.highlightSelected) {
+                ctx.fillStyle = 'red'
+            } else {
+                ctx.fillStyle = meme.color // Normal color for other texts
+            }
+            ctx.fillText(txt, canvas.width / 2, canvas.height - 50 - index * meme.size)
+        })
+
         if (currentText) {
             ctx.fillText(
                 currentText,
