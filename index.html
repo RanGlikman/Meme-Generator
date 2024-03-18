@@ -3,26 +3,35 @@
 
 <head>
     <meta charset="UTF-8">
-    <title>Meme Generator</title>
+    <title>9KEK Meme Generator</title>
     <link rel="stylesheet" href="css/main.css">
 </head>
 
-<body onload="onInit()">
-    <h1>Meme Generator</h1>
-    <canvas class="meme-canvas" width="500" height="500"></canvas>
-    <input type="text" class="text-input" placeholder="Enter meme text here">
-    <div class="controls">
-        <input type="color" class="color-input" value="#FFFFFF" onchange="drawImageAndText()">
-        <button class="btn-font-size" onclick="changeFontSize(-2)">A-</button>
-        <button class="btn-font-size" onclick="changeFontSize(2)">A+</button>
-    </div>
+<body>
+    <h1>9KEK Meme Generator</h1>
 
-    <a class="download-btn" href="#" onclick="onDownloadCanvas(this)">Download</a>
 
-    <h3>Select an image:</h3>
-    <section class="select-img-container">
+    <section class="gallery">
+        <div class="gallery-container"></div>
     </section>
 
+
+    <section class="editor">
+        <canvas class="meme-canvas" width="500" height="500"></canvas>
+        <div class="controls">
+            <input type="text" class="text-input" placeholder="Enter meme text here">
+            <div class="buttons">
+                <input type="color" class="color-input" value="#FFFFFF">
+                <button class="btn-decrease-font">A-</button>
+                <button class="btn-increase-font">A+</button>
+            </div>
+            <a class="download-btn" href="#" download="my-meme.png">Download</a>
+        </div>
+    </section>
+
+    <script src="js/memeService.js"></script>
+    <script src="js/galleryController.js"></script>
+    <script src="js/memeController.js"></script>
     <script src="js/main.js"></script>
 </body>
 

@@ -22,14 +22,51 @@ h1 {
     color: #333;
 }
 
-.controls {
-    display: grid;
-    grid-template-columns: auto auto auto;
-    gap: 1px;
+.editor {
+    display: flex;
     align-items: center;
+    justify-content: space-between;
+    padding: 20px;
 }
 
-.btn-font-size,
+.meme-canvas {
+    margin-right: 20px;
+}
+
+.controls {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 10px;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.buttons {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+}
+
+.btn-decrease-font,
+.btn-increase-font,
 .color-input {
     height: 35px;
+}
+
+.text-input {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 10px;
+}
+
+.download-btn {
+    padding: 10px 20px;
+    text-decoration: none;
+    color: white;
+    background-color: #007bff;
+    border-radius: 4px;
+    margin-top: 10px;
 }
