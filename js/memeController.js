@@ -11,20 +11,33 @@ function renderMeme(currentText = '') {
     const drawContent = () => {
         ctx.clearRect(0, 0, canvas.width, canvas.height)
         ctx.drawImage(img, 0, 0, canvas.width, canvas.height)
-        ctx.fillStyle = meme.color
+
         ctx.font = `${meme.size}px Arial`
         ctx.textAlign = 'center'
 
         meme.txts.forEach((txt, index) => {
+            let yPos = canvas.height - 50 - index * meme.size
+
+            ctx.fillStyle = meme.color
+            ctx.fillText(txt, canvas.width / 2, yPos)
+
             if (index === gMeme.selectedTxtIndex && gMeme.highlightSelected) {
-                ctx.fillStyle = 'red'
-            } else {
-                ctx.fillStyle = meme.color // Normal color for other texts
+                ctx.strokeStyle = 'red'
+                ctx.lineWidth = 2
+
+                const textWidth = ctx.measureText(txt).width
+                const textHeight = meme.size
+
+                const padding = 10
+                const borderX = canvas.width / 2 - textWidth / 2 - padding
+                const borderY = yPos - textHeight + padding / 2
+
+                ctx.strokeRect(borderX, borderY, textWidth + padding * 2, textHeight)
             }
-            ctx.fillText(txt, canvas.width / 2, canvas.height - 50 - index * meme.size)
         })
 
         if (currentText) {
+            ctx.fillStyle = meme.color
             ctx.fillText(
                 currentText,
                 canvas.width / 2,
