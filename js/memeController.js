@@ -16,10 +16,6 @@ function renderMeme(currentText = '') {
         ctx.textAlign = 'center'
 
         meme.txts.forEach((txt, index) => {
-            ctx.fillText(txt, canvas.width / 2, canvas.height - 50 - index * meme.size)
-        })
-
-        meme.txts.forEach((txt, index) => {
             if (index === gMeme.selectedTxtIndex && gMeme.highlightSelected) {
                 ctx.fillStyle = 'red'
             } else {

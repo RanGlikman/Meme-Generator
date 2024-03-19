@@ -16,6 +16,7 @@ function getMeme() {
 function addLineTxt(txt) {
     if (txt.trim() !== '') {
         gMeme.txts.push(txt)
+        gMeme.selectedTxtIndex = gMeme.txts.length - 1 // Select the new line
     }
 }
 
