@@ -21,7 +21,8 @@ function renderMeme(currentText = '') {
             ctx.fillStyle = meme.color
             ctx.fillText(txt, canvas.width / 2, yPos)
 
-            if (index === gMeme.selectedTxtIndex && gMeme.highlightSelected) {
+            // if (index === gMeme.selectedTxtIndex && gMeme.highlightSelected) { //* Old version
+            if (index === gMeme.selectedTxtIndex) { //* New version
                 ctx.strokeStyle = 'red'
                 ctx.lineWidth = 2
 
