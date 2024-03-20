@@ -1,5 +1,7 @@
 'use strict'
 
+/* -------------------------------------------------------------------------- */
+
 function renderMeme(currentText = '') {
     const canvas = document.querySelector('.meme-canvas')
     const ctx = canvas.getContext('2d')
@@ -22,7 +24,8 @@ function renderMeme(currentText = '') {
             ctx.fillText(txt, canvas.width / 2, yPos)
 
             // if (index === gMeme.selectedTxtIndex && gMeme.highlightSelected) { //* Old version
-            if (index === gMeme.selectedTxtIndex) { //* New version
+            if (index === gMeme.selectedTxtIndex) {
+                //* New version
                 ctx.strokeStyle = 'red'
                 ctx.lineWidth = 2
 
@@ -37,6 +40,8 @@ function renderMeme(currentText = '') {
             }
         })
 
+        /* -------------------------------------------------------------------------- */
+
         if (currentText) {
             ctx.fillStyle = meme.color
             ctx.fillText(
@@ -47,9 +52,13 @@ function renderMeme(currentText = '') {
         }
     }
 
+    /* -------------------------------------------------------------------------- */
+
     if (img.complete) {
         drawContent()
     } else {
         img.onload = drawContent
     }
 }
+
+/* -------------------------------------------------------------------------- */

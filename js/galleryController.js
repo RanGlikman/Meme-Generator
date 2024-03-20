@@ -1,5 +1,7 @@
 'use strict'
 
+/* -------------------------------------------------------------------------- */
+
 function renderGallery() {
     const galleryContainer = document.querySelector('.gallery-container')
     for (let i = 1; i <= 2; i++) {
@@ -14,3 +16,5 @@ function renderGallery() {
         galleryContainer.appendChild(img)
     }
 }
+
+/* -------------------------------------------------------------------------- */

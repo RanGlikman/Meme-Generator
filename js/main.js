@@ -1,10 +1,9 @@
 'use strict'
 
+/* -------------------------------------------------------------------------- */
+
 document.addEventListener('DOMContentLoaded', () => {
     renderGallery()
-
-    /* -------------------------------------------------------------------------- */
-
     const textInput = document.querySelector('.text-input')
 
     textInput.addEventListener('input', () => {
@@ -50,7 +49,9 @@ document.addEventListener('DOMContentLoaded', () => {
         setColor(colorInput.value)
         renderMeme(textInput.value)
     })
+
     /* -------------------------------------------------------------------------- */
+
     const btnIncreaseFont = document.querySelector('.btn-increase-font')
     const btnDecreaseFont = document.querySelector('.btn-decrease-font')
     btnIncreaseFont.addEventListener('click', () => {
