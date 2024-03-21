@@ -14,6 +14,9 @@ function renderMeme(currentText = '') {
         ctx.font = `${meme.size}px Arial`
         ctx.textAlign = 'center'
 
+        document.querySelector('.editor').style.display = 'flex'
+        document.querySelector('.gallery').style.display = 'none'
+
         meme.txts.forEach((line, index) => {
             ctx.font = `${line.height}px Arial`
 

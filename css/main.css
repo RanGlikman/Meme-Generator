@@ -27,6 +27,7 @@ h1 {
     align-items: center;
     justify-content: space-between;
     padding: 20px;
+    display: none;
 }
 
 .meme-canvas {
@@ -62,11 +63,17 @@ h1 {
     margin-bottom: 10px;
 }
 
-.download-btn {
+.download-btn, .select-another-meme-btn {
     padding: 10px 20px;
     text-decoration: none;
     color: white;
     background-color: #007bff;
     border-radius: 4px;
     margin-top: 10px;
+    cursor: pointer;
+}
+
+.select-another-meme-btn {
+    background-color: #517397;
+    cursor: pointer;
 }

@@ -5,6 +5,8 @@ document.addEventListener('DOMContentLoaded', () => {
     const canvas = document.querySelector('.meme-canvas')
     const textInput = document.querySelector('.text-input')
 
+    /* -------------------------------------------------------------------------- */
+
     textInput.addEventListener('input', () => {
         // Ensure the index is within bounds and the element exists
         if (
@@ -21,6 +23,8 @@ document.addEventListener('DOMContentLoaded', () => {
             renderMeme(textInput.value) // Show the typed text on canvas without adding to the array
         }
     })
+
+    /* -------------------------------------------------------------------------- */
 
     textInput.addEventListener('keydown', event => {
         if (event.key === 'Enter') {
@@ -43,19 +47,25 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     })
 
+    /* -------------------------------------------------------------------------- */
+
     const colorInput = document.querySelector('.color-input')
     colorInput.addEventListener('change', () => {
         setColor(colorInput.value)
         renderMeme(textInput.value)
     })
 
+    /* -------------------------------------------------------------------------- */
+
     // Event listener for increasing font size
     document.querySelector('.btn-increase-font').addEventListener('click', () => {
         if (gMeme.selectedTxtIndex !== null && gMeme.txts[gMeme.selectedTxtIndex]) {
-            gMeme.txts[gMeme.selectedTxtIndex].height += 2 
+            gMeme.txts[gMeme.selectedTxtIndex].height += 2
             renderMeme()
         }
     })
+
+    /* -------------------------------------------------------------------------- */
 
     // Event listener for decreasing font size
     document.querySelector('.btn-decrease-font').addEventListener('click', () => {
@@ -64,16 +74,20 @@ document.addEventListener('DOMContentLoaded', () => {
             gMeme.txts[gMeme.selectedTxtIndex] &&
             gMeme.txts[gMeme.selectedTxtIndex].height > 10
         ) {
-            gMeme.txts[gMeme.selectedTxtIndex].height -= 2 
+            gMeme.txts[gMeme.selectedTxtIndex].height -= 2
             renderMeme()
         }
     })
+
+    /* -------------------------------------------------------------------------- */
 
     const downloadBtn = document.querySelector('.download-btn')
     downloadBtn.addEventListener('click', () => {
         const dataURL = canvas.toDataURL('image/png')
         downloadBtn.href = dataURL
     })
+
+    /* -------------------------------------------------------------------------- */
 
     const switchTextBtn = document.querySelector('.switch-text-btn')
     switchTextBtn.addEventListener('click', () => {
@@ -84,11 +98,15 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     })
 
+    /* -------------------------------------------------------------------------- */
+
     document.querySelector('.deselect-switch-text-btn').addEventListener('click', () => {
         gMeme.selectedTxtIndex = null
         textInput.value = ''
         renderMeme(textInput.value)
     })
+
+    /* -------------------------------------------------------------------------- */
 
     canvas.addEventListener('click', e => {
         const rect = canvas.getBoundingClientRect()
@@ -126,6 +144,7 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     })
 
+    /* -------------------------------------------------------------------------- */
 
     document.body.addEventListener(
         'click',
@@ -145,5 +164,14 @@ document.addEventListener('DOMContentLoaded', () => {
             }
         },
         true
-    ) 
+    )
+
+    document.querySelector('.select-another-meme-btn').addEventListener('click', () => {
+        document.querySelector('.gallery').style.display = 'block'
+        document.querySelector('.editor').style.display = 'none'
+    })
+
+    /* -------------------------------------------------------------------------- */
 })
+
+/* -------------------------------------------------------------------------- */
