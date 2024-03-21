@@ -19,11 +19,16 @@ function getMeme() {
 
 /* -------------------------------------------------------------------------- */
 
-function addLineTxt(txt) {
-    if (txt.trim() !== '') {
-        gMeme.txts.push(txt)
-        gMeme.selectedTxtIndex = gMeme.txts.length - 1 // Select the new line
+function addLineTxt(txt, x, y) {
+    const line = {
+        text: txt,
+        x: x, // Use the clicked x position
+        y: y, // Use the clicked y position
+        width: null, // To be calculated during rendering
+        height: gMeme.size, // Default text size
     }
+    gMeme.txts.push(line)
+    gMeme.selectedTxtIndex = gMeme.txts.length - 1 // Update index to new text
 }
 
 /* -------------------------------------------------------------------------- */

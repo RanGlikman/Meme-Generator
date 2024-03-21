@@ -1,8 +1,5 @@
-'use strict'
-
-/* -------------------------------------------------------------------------- */
-
 function renderMeme(currentText = '') {
+    console.log('Rendering meme with texts:', gMeme.txts)
     const canvas = document.querySelector('.meme-canvas')
     const ctx = canvas.getContext('2d')
     const meme = getMeme()
@@ -17,48 +14,41 @@ function renderMeme(currentText = '') {
         ctx.font = `${meme.size}px Arial`
         ctx.textAlign = 'center'
 
-        meme.txts.forEach((txt, index) => {
-            let yPos = canvas.height - 50 - index * meme.size
+        meme.txts.forEach((line, index) => {
+            ctx.font = `${line.height}px Arial`
 
+            const yPos = line.y // Use the y position from the line object
             ctx.fillStyle = meme.color
-            ctx.fillText(txt, canvas.width / 2, yPos)
+            ctx.fillText(line.text, line.x, line.y)
 
-            // if (index === gMeme.selectedTxtIndex && gMeme.highlightSelected) { //* Old version
+            // Measure text width for alignment and selection box
+            line.width = ctx.measureText(line.text).width
+            // Draw text on canvas
+            const textX = line.x - line.width / 2
+
             if (index === gMeme.selectedTxtIndex) {
-                //* New version
                 ctx.strokeStyle = 'red'
                 ctx.lineWidth = 2
-
-                const textWidth = ctx.measureText(txt).width
-                const textHeight = meme.size
-
-                const padding = 10
-                const borderX = canvas.width / 2 - textWidth / 2 - padding
-                const borderY = yPos - textHeight + padding / 2
-
-                ctx.strokeRect(borderX, borderY, textWidth + padding * 2, textHeight)
+                // Subtract half the width of the text to start the selection box
+                const selectionBoxX = line.x - line.width / 2
+                // The y-coordinate starts from the bottom of the text, so subtract the font size
+                const selectionBoxY = line.y - line.height
+                // Draw the selection box with the exact width of the text
+                ctx.strokeRect(selectionBoxX, selectionBoxY, line.width, line.height)
             }
         })
 
-        /* -------------------------------------------------------------------------- */
-
+        // Handling the scenario where the user is typing but hasn't added the text as a line yet
         if (currentText) {
             ctx.fillStyle = meme.color
-            ctx.fillText(
-                currentText,
-                canvas.width / 2,
-                canvas.height - 50 - meme.txts.length * meme.size
-            )
+            ctx.fillText(currentText, canvas.width / 2, canvas.height - 50) // Displaying the current text at a fixed position
         }
     }
 
-    /* -------------------------------------------------------------------------- */
-
+    // Ensuring the image is loaded before drawing
     if (img.complete) {
         drawContent()
     } else {
         img.onload = drawContent
     }
 }
-
-/* -------------------------------------------------------------------------- */
