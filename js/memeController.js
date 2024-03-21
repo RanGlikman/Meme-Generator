@@ -55,3 +55,7 @@ function renderMeme(currentText = '') {
         img.onload = drawContent
     }
 }
+
+/* -------------------------------------------------------------------------- */
+
+// Delivery4
