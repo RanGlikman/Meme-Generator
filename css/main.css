@@ -87,9 +87,9 @@ h1 {
 }
 
 .gallery-container img {
-    width: auto; /* Make images responsive */
-    height: auto; /* Maintain aspect ratio */
-    max-width: 300px; /* Example max-width for larger screens */
+    width: auto; 
+    height: auto; 
+    max-width: 300px; 
     margin: 0;
     padding: 0;
     border: none;
