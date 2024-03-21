@@ -11,27 +11,42 @@
 </head>
 
 <body>
-    <h1>9KEK</h1>
-
-    <section class="gallery">
-        <div class="gallery-container"></div>
-    </section>
-
-    <section class="editor">
-        <canvas class="meme-canvas" width="500" height="500"></canvas>
-        <div class="controls">
-            <input type="text" class="text-input" placeholder="Select a meme from gallery" disabled>
-            <div class="buttons">
-                <button class="switch-text-btn">↕</button>
-                <button class="deselect-switch-text-btn">№</button>
-                <input type="color" class="color-input" value="#FFFFFF">
-                <button class="btn-decrease-font">A-</button>
-                <button class="btn-increase-font">A+</button>
-            </div>
-            <a class="download-btn" href="#" download="my-meme.png">Download</a>
-            <button class="select-another-meme-btn">Select Another Meme</button>
+    <header class="header">
+        <div class="container">
+            <div class="logo">9KEK</div>
+            <nav class="navbar">
+                <ul>
+                    <li><a href="#" class="nav-link" data-target="gallery">Gallery</a></li>
+                    <li><a href="#" class="nav-link" data-target="memes">Memes</a></li>
+                    <li><a href="#" class="nav-link" data-target="about">About</a></li>
+                </ul>
+            </nav>
         </div>
-    </section>
+    </header>
+
+    <div class="content">
+
+        <section class="gallery">
+            <div class="gallery-container" id="gallery-section">
+        </section>
+
+        <section class="editor">
+            <canvas class="meme-canvas" width="500" height="500"></canvas>
+            <div class="controls">
+                <input type="text" class="text-input" placeholder="Select a meme from gallery" disabled>
+                <div class="buttons">
+                    <button class="switch-text-btn">↕</button>
+                    <button class="deselect-switch-text-btn">№</button>
+                    <input type="color" class="color-input" value="#FFFFFF">
+                    <button class="btn-decrease-font">A-</button>
+                    <button class="btn-increase-font">A+</button>
+                </div>
+                <a class="download-btn" href="#" download="my-meme.png">Download</a>
+                <button class="select-another-meme-btn">Select Another Meme</button>
+            </div>
+        </section>
+
+    </div>
 
     <script src="js/memeService.js"></script>
     <script src="js/galleryController.js"></script>
