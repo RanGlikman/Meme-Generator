@@ -100,6 +100,20 @@ h1 {
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
+.editor,
+.header {
+    max-width: 100%;
+    padding: 0 10px;
+    box-sizing: border-box;
+    height: auto;
+}
+
+.gallery-container img,
+.meme-canvas {
+    max-width: 100%;
+    height: auto;
+}
+
 /* --------------------------------- Header --------------------------------- */
 
 html,
@@ -170,6 +184,20 @@ ul {
 @media (max-width: 992px) {
     .gallery-container img {
         width: calc(33.333% - 10px); /* 3 images per row */
+    }
+    .editor,
+    .meme-canvas,
+    .controls {
+        margin-right: 0;
+        width: 100%;
+        max-width: none;
+    }
+    .editor {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+    .meme-canvas {
+        margin-bottom: 20px;
     }
 }
 
