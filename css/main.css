@@ -173,7 +173,7 @@ ul {
     background-color: #003366;
 }
 
-/* ----------------------------- Responsiveness ----------------------------- */
+/* ----------------------------- Resolution Responsiveness ----------------------------- */
 
 @media (max-width: 1200px) {
     .gallery-container img {
@@ -204,5 +204,24 @@ ul {
 @media (max-width: 768px) {
     .gallery-container img {
         width: calc(50% - 10px); /* 2 images per row */
+    }
+}
+
+/* -------------------------- Ratio Responsiveness -------------------------- */
+
+@media screen and (max-aspect-ratio: 1/1) {
+    .editor,
+    .meme-canvas,
+    .controls {
+        margin-right: 0;
+        width: 100%;
+        max-width: none;
+    }
+    .editor {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+    .meme-canvas {
+        margin-bottom: 20px;
     }
 }
