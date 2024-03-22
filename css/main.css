@@ -86,13 +86,18 @@ h1 {
     height: calc(100vh - 70px);
 }
 
+.gallery-container {
+    display: flex;
+    flex-wrap: wrap;
+    padding: 10px;
+}
+
 .gallery-container img {
-    width: auto; 
-    height: auto; 
-    max-width: 300px; 
-    margin: 0;
-    padding: 0;
-    border: none;
+    width: calc(20% - 10px); /* 5 images per row on desktop */
+    height: auto;
+    object-fit: contain;
+    margin: 5px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
 /* --------------------------------- Header --------------------------------- */
@@ -154,34 +159,22 @@ ul {
     background-color: #003366;
 }
 
-/* body::-webkit-scrollbar { 
-    display: none; 
-  }
-   */
+/* ----------------------------- Responsiveness ----------------------------- */
 
-@media (max-width: 768px) {
-    .editor,
-    .meme-canvas,
-    .controls {
-        margin-right: 0;
-        width: 100%;
-        max-width: none;
+@media (max-width: 1200px) {
+    .gallery-container img {
+        width: calc(25% - 10px); /* 4 images per row */
     }
-    .editor {
-        flex-direction: column;
-        align-items: flex-start;
-    }
-    .meme-canvas {
-        margin-bottom: 20px;
-    }
-
-    .gallery-container {
-        display: flex;
-        flex-wrap: wrap;
-        gap: 0; 
-    }
-
-    
 }
 
-/* Delivery4 */
+@media (max-width: 992px) {
+    .gallery-container img {
+        width: calc(33.333% - 10px); /* 3 images per row */
+    }
+}
+
+@media (max-width: 768px) {
+    .gallery-container img {
+        width: calc(50% - 10px); /* 2 images per row */
+    }
+}
