@@ -172,8 +172,15 @@ document.addEventListener('DOMContentLoaded', () => {
     })
 
     /* -------------------------------------------------------------------------- */
+
+    document.querySelector('.btn-delete-text').addEventListener('click', () => {
+        deleteSelectedLine()
+        textInput.value = ''
+        textInput.setAttribute('disabled', true)
+        textInput.placeholder = 'Click meme to type/edit text' 
+        gMeme.selectedTxtIndex = null 
+        renderMeme() 
+    })
 })
 
 /* -------------------------------------------------------------------------- */
-
-// Delivery4

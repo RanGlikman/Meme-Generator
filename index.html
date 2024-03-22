@@ -35,14 +35,20 @@
         <section class="editor">
             <canvas class="meme-canvas" width="500" height="500"></canvas>
             <div class="controls">
-                <input type="text" class="text-input" placeholder="Select a meme from gallery" disabled>
+                <input title="Text field is disabled. Please click the area of the meme where you wish to put text on"
+                    type="text" class="text-input" placeholder="Select a meme from gallery" disabled>
                 <div class="buttons">
-                    <button class="switch-text-btn">⬆️⬇️</button>
-                    <button class="deselect-switch-text-btn">⤵️</button>
-                    <input type="color" class="color-input" value="#FFFFFF">
-                    <button class="btn-decrease-font">🅰️➖</button>
-                    <button class="btn-increase-font">🅰️➕</button>
-                    <button class="btn-delete-text">❌</button>
+                    <button alt="Switch text line" title="Switch text line" class="switch-text-btn">⬆️⬇️</button>
+                    <button alt="Deselect text line" title="Deselect text line"
+                        class="deselect-switch-text-btn">⤵️🖼️</button>
+                    <input alt="Select text color (for all text lines)" title="Select text color (for all text lines)"
+                        type="color" class="color-input" value="#FFFFFF">
+                    <button alt="Decrease selected line font size" title="Decrease selected line font size"
+                        class="btn-decrease-font">🅰️➖</button>
+                    <button alt="Increase selected line font size" title="Increase selected line font size"
+                        class="btn-increase-font">🅰️➕</button>
+                    <button alt="Delete selected line" title="Delete selected line"
+                        class="btn-delete-text">🗑️❌</button>
                 </div>
                 <a class="download-btn" href="#" download="my-meme.png">Download</a>
                 <button class="select-another-meme-btn">Select Another Meme</button>
