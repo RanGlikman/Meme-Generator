@@ -202,6 +202,10 @@ ul {
 }
 
 @media (max-width: 768px) {
+    .navbar a {
+        padding: 0;
+    }
+
     .gallery-container img {
         width: calc(50% - 10px); /* 2 images per row */
     }
@@ -223,5 +227,9 @@ ul {
     }
     .meme-canvas {
         margin-bottom: 20px;
+    }
+
+    .navbar a {
+        padding: 0;
     }
 }
