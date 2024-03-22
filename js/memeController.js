@@ -18,7 +18,7 @@ function renderMeme(currentText = '') {
         document.querySelector('.gallery').style.display = 'none'
 
         meme.txts.forEach((line, index) => {
-            ctx.font = `${line.height}px Arial`
+            ctx.font = `${line.height}px ${line.fontFamily}`
 
             const yPos = line.y // Use the y position from the line object
             ctx.fillStyle = meme.color
@@ -57,5 +57,3 @@ function renderMeme(currentText = '') {
 }
 
 /* -------------------------------------------------------------------------- */
-
-// Delivery4

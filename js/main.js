@@ -57,7 +57,6 @@ document.addEventListener('DOMContentLoaded', () => {
 
     /* -------------------------------------------------------------------------- */
 
-    // Event listener for increasing font size
     document.querySelector('.btn-increase-font').addEventListener('click', () => {
         if (gMeme.selectedTxtIndex !== null && gMeme.txts[gMeme.selectedTxtIndex]) {
             gMeme.txts[gMeme.selectedTxtIndex].height += 2
@@ -67,7 +66,6 @@ document.addEventListener('DOMContentLoaded', () => {
 
     /* -------------------------------------------------------------------------- */
 
-    // Event listener for decreasing font size
     document.querySelector('.btn-decrease-font').addEventListener('click', () => {
         if (
             gMeme.selectedTxtIndex !== null &&
@@ -149,18 +147,12 @@ document.addEventListener('DOMContentLoaded', () => {
     document.body.addEventListener(
         'click',
         function (event) {
-            // Check if the clicked element is not the text input, canvas, or any control button
-            if (
-                !event.target.matches(
-                    '.text-input, .meme-canvas, .buttons button, .color-input, .download-btn'
-                )
-            ) {
-                // Clear and disable the text input field
+            if (!event.target.matches('.text-input, .meme-canvas, .controls *, .controls')) {
                 textInput.value = ''
                 textInput.setAttribute('disabled', true)
-                textInput.placeholder = 'Click meme to type/edit text' // Set the placeholder text
-                gMeme.selectedTxtIndex = null // Deselect any text
-                renderMeme() // Re-render the meme to reflect the deselected text
+                textInput.placeholder = 'Click meme to type/edit text'
+                gMeme.selectedTxtIndex = null
+                renderMeme()
             }
         },
         true
@@ -177,9 +169,19 @@ document.addEventListener('DOMContentLoaded', () => {
         deleteSelectedLine()
         textInput.value = ''
         textInput.setAttribute('disabled', true)
-        textInput.placeholder = 'Click meme to type/edit text' 
-        gMeme.selectedTxtIndex = null 
-        renderMeme() 
+        textInput.placeholder = 'Click meme to type/edit text'
+        gMeme.selectedTxtIndex = null
+        renderMeme()
+    })
+
+    /* -------------------------------------------------------------------------- */
+
+    document.querySelector('.font-family-select').addEventListener('change', event => {
+        gMeme.fontFamily = event.target.value
+        if (gMeme.selectedTxtIndex !== null && gMeme.txts[gMeme.selectedTxtIndex]) {
+            gMeme.txts[gMeme.selectedTxtIndex].fontFamily = event.target.value
+            renderMeme()
+        }
     })
 })
 

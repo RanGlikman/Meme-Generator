@@ -8,6 +8,7 @@ let gMeme = {
     selectedTxtIndex: 0,
     size: 30,
     color: '#FFFFFF',
+    fontFamily: 'Arial',
     highlightSelected: false,
 }
 
@@ -22,13 +23,14 @@ function getMeme() {
 function addLineTxt(txt, x, y) {
     const line = {
         text: txt,
-        x: x, // Use the clicked x position
-        y: y, // Use the clicked y position
-        width: null, // To be calculated during rendering
-        height: gMeme.size, // Default text size
+        x: x,
+        y: y,
+        width: null,
+        height: gMeme.size,
+        fontFamily: gMeme.fontFamily,
     }
     gMeme.txts.push(line)
-    gMeme.selectedTxtIndex = gMeme.txts.length - 1 // Update index to new text
+    gMeme.selectedTxtIndex = gMeme.txts.length - 1
 }
 
 /* -------------------------------------------------------------------------- */
