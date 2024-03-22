@@ -145,6 +145,8 @@ ul {
     align-items: center;
     justify-content: space-between;
     padding: 0 20px;
+    padding-left: 0;
+
 }
 
 .logo {
@@ -165,7 +167,7 @@ ul {
 .navbar a {
     color: white;
     text-decoration: none;
-    padding: 10px 15px;
+    padding: 10px 0;
     transition: background-color 0.3s ease;
 }
 
@@ -203,7 +205,7 @@ ul {
 
 @media (max-width: 768px) {
     .navbar a {
-        padding: 0;
+            padding-right: 0;
     }
 
     .gallery-container img {
@@ -228,8 +230,7 @@ ul {
     .meme-canvas {
         margin-bottom: 20px;
     }
-
     .navbar a {
-        padding: 0;
-    }
+        padding-right: 0;
+}
 }
