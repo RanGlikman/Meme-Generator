@@ -23,10 +23,15 @@ canvas {
     gap: 10px;
 }
 
-.btn-decrease-font,
-.btn-increase-font,
+.buttons *,
 .color-input {
-    height: 35px;
+    text-decoration: none;
+    color: black;
+    background-color: #ced3d7;
+    border-radius: 4px;
+    cursor: pointer;
+    height: 25px;
+    border: none;
 }
 
 .text-input {
@@ -35,8 +40,7 @@ canvas {
     margin-bottom: 10px;
 }
 
-.download-btn,
-.select-another-meme-btn {
+.download-btn {
     padding: 10px 20px;
     text-decoration: none;
     color: white;
