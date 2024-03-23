@@ -152,6 +152,20 @@ ul {
     padding: 10px 0;
 }
 
+@keyframes spin {
+    from {
+        transform: rotate(0deg);
+    }
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+.logo:hover span {
+    display: inline-block;
+    animation: spin 0.5s linear;
+}
+
 .navbar ul {
     list-style: none;
     display: flex;
