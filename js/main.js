@@ -1,9 +1,15 @@
 'use strict'
 
+/* -------------------------------------------------------------------------- */
+
 document.addEventListener('DOMContentLoaded', () => {
     renderGallery()
     const canvas = document.querySelector('.meme-canvas')
     const textInput = document.querySelector('.text-input')
+    let isDragging = false
+    let dragIndex = -1
+    let dragOffsetX = 0
+    let dragOffsetY = 0
 
     /* -------------------------------------------------------------------------- */
 
@@ -193,6 +199,49 @@ document.addEventListener('DOMContentLoaded', () => {
             renderMeme()
         }
     })
+
+    /* ------------------------------ Drag and Drop ----------------------------- */
+
+    canvas.addEventListener('mousedown', function (e) {
+        const rect = canvas.getBoundingClientRect()
+        const x = e.clientX - rect.left
+        const y = e.clientY - rect.top
+
+        gMeme.txts.forEach((line, index) => {
+            if (
+                x >= line.x - line.width / 2 &&
+                x <= line.x + line.width / 2 &&
+                y >= line.y - line.height &&
+                y <= line.y
+            ) {
+                isDragging = true
+                dragIndex = index
+                gMeme.selectedTxtIndex = index // Select the line for editing (by index)
+
+                dragOffsetX = x - line.x
+                dragOffsetY = y - line.y
+            }
+        })
+    })
+
+    canvas.addEventListener('mousemove', function (e) {
+        if (isDragging) {
+            const rect = canvas.getBoundingClientRect()
+            const x = e.clientX - rect.left
+            const y = e.clientY - rect.top
+
+            gMeme.txts[dragIndex].x = x - dragOffsetX
+            gMeme.txts[dragIndex].y = y - dragOffsetY
+            renderMeme()
+        }
+    })
+
+    canvas.addEventListener('mouseup', function (e) {
+        isDragging = false
+        dragIndex = -1
+    })
+
+    /* -------------------------------------------------------------------------- */
 })
 
 /* -------------------------------------------------------------------------- */
