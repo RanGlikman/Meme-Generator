@@ -77,11 +77,6 @@ h1 {
     cursor: pointer;
 }
 
-.select-another-meme-btn {
-    background-color: #517397;
-    cursor: pointer;
-}
-
 .content {
     padding-top: 70px;
     overflow-y: auto; /* Only this part will scroll */
@@ -166,14 +161,19 @@ ul {
 }
 
 .navbar a {
-    color: white;
+    padding: 5px;
+    margin: 0;
+    display: inline-block;
     text-decoration: none;
-    padding: 10px 0;
-    transition: background-color 0.3s ease;
+    color: inherit;
+    transition: padding 0.3s, margin 0.3s;
 }
 
 .navbar a:hover {
+    padding: 10px;
+    margin: -5px;
     background-color: #003366;
+    border-radius: 3px;
 }
 
 /* ----------------------------- Resolution Responsiveness ----------------------------- */
