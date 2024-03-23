@@ -168,11 +168,11 @@ document.addEventListener('DOMContentLoaded', () => {
 
     /* -------------------------------------------------------------------------- */
 
-    document.querySelector('.select-another-meme-btn').addEventListener('click', () => {
+    document.querySelector('a[data-target="gallery"]').addEventListener('click', event => {
+        event.preventDefault()
         document.querySelector('.gallery').style.display = 'block'
         document.querySelector('.editor').style.display = 'none'
     })
-
     /* -------------------------------------------------------------------------- */
 
     document.querySelector('.btn-delete-text').addEventListener('click', () => {
