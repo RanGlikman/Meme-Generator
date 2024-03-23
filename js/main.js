@@ -91,7 +91,9 @@ document.addEventListener('DOMContentLoaded', () => {
     switchTextBtn.addEventListener('click', () => {
         if (gMeme.txts.length > 0) {
             gMeme.selectedTxtIndex = (gMeme.selectedTxtIndex + 1) % gMeme.txts.length
-            textInput.value = gMeme.txts[gMeme.selectedTxtIndex].text // Update input field with selected text
+            textInput.removeAttribute('disabled')
+            textInput.value = gMeme.txts[gMeme.selectedTxtIndex].text
+            textInput.focus()
             renderMeme()
         }
     })
@@ -147,16 +149,24 @@ document.addEventListener('DOMContentLoaded', () => {
     document.body.addEventListener(
         'click',
         function (event) {
-            if (!event.target.matches('.text-input, .meme-canvas, .controls *, .controls')) {
-                textInput.value = ''
-                textInput.setAttribute('disabled', true)
-                textInput.placeholder = 'Click meme to type/edit text'
-                gMeme.selectedTxtIndex = null
-                renderMeme()
+            if (
+                !event.target.matches(
+                    '.text-input, .meme-canvas, .controls *, .controls, .navbar, .navbar *'
+                )
+            ) {
+                if (textInput.value.trim() !== '') {
+                    textInput.value = ''
+                    textInput.setAttribute('disabled', true)
+                    textInput.placeholder = 'Click meme to type/edit text'
+                    gMeme.selectedTxtIndex = null
+                    renderMeme()
+                }
             }
         },
         true
     )
+
+    /* -------------------------------------------------------------------------- */
 
     document.querySelector('.select-another-meme-btn').addEventListener('click', () => {
         document.querySelector('.gallery').style.display = 'block'
