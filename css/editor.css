@@ -1,0 +1,47 @@
+canvas {
+    border: 2px solid #777;
+    background-color: #fff;
+}
+
+.editor {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 20px;
+    display: none;
+    margin-top: 50px;
+}
+
+.meme-canvas {
+    margin-right: 20px;
+}
+
+.buttons {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 10px;
+}
+
+.btn-decrease-font,
+.btn-increase-font,
+.color-input {
+    height: 35px;
+}
+
+.text-input {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 10px;
+}
+
+.download-btn,
+.select-another-meme-btn {
+    padding: 10px 20px;
+    text-decoration: none;
+    color: white;
+    background-color: #007bff;
+    border-radius: 4px;
+    margin-top: 10px;
+    cursor: pointer;
+}

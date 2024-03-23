@@ -1,0 +1,44 @@
+.content {
+    padding-top: 70px;
+    overflow-y: auto; /* Only this part will scroll */
+    height: calc(100vh - 70px);
+}
+
+.editor,
+.header {
+    max-width: 100%;
+    padding: 0 10px;
+    box-sizing: border-box;
+    height: auto;
+}
+
+.header .container {
+    width: 100%;
+    margin: auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 20px;
+    padding-left: 0;
+}
+
+.logo {
+    font-size: 24px;
+    font-weight: bold;
+    line-height: 1;
+    padding: 10px 0;
+}
+
+@keyframes spin {
+    from {
+        transform: rotate(0deg);
+    }
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+.logo:hover span {
+    display: inline-block;
+    animation: spin 0.5s linear;
+}

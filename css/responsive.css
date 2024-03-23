@@ -1,0 +1,52 @@
+/* ----------------------------- Resolution Responsiveness ----------------------------- */
+
+@media (max-width: 1200px) {
+    .gallery-container img {
+        width: calc(25% - 10px); /* 4 images per row */
+    }
+}
+
+@media (max-width: 992px) {
+    .gallery-container img {
+        width: calc(33.333% - 10px); /* 3 images per row */
+    }
+}
+
+@media (max-width: 768px) {
+    .gallery-container img {
+        width: calc(50% - 10px); /* 2 images per row */
+    }
+}
+
+/* -------------------------- Ratio Responsiveness -------------------------- */
+
+@media screen and (max-aspect-ratio: 1/1) {
+    .editor,
+    .meme-canvas,
+    .controls {
+        margin-right: 0;
+        width: 100%;
+        max-width: none;
+    }
+    .editor {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+    .meme-canvas {
+        margin-bottom: 10px;
+    }
+    .navbar a {
+        padding-right: 0;
+    }
+    .content {
+        padding-top: 30px;
+    }
+
+    .controls {
+        gap: 0;
+    }
+
+    .gallery-container {
+        padding-top: 35px;
+    }
+}

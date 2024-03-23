@@ -1,0 +1,50 @@
+.header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px 20px;
+    background-color: #1a1a1a;
+    color: white;
+    width: 100%;
+    box-sizing: border-box;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 1000; /* Ensures it's above other content */
+}
+
+.navbar ul {
+    list-style: none;
+    display: flex;
+    gap: 20px;
+    align-items: center;
+    height: 100%;
+}
+
+.navbar a {
+    padding: 5px;
+    margin: 0;
+    display: inline-block;
+    text-decoration: none;
+    color: inherit;
+    transition: padding 0.3s, margin 0.3s;
+}
+
+.navbar a:hover {
+    padding: 10px;
+    margin: -5px;
+    background-color: #003366;
+    border-radius: 3px;
+}
+
+.controls {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 10px;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    flex-wrap: wrap;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
