@@ -21,12 +21,11 @@ document.addEventListener('DOMContentLoaded', () => {
             gMeme.selectedTxtIndex < gMeme.txts.length &&
             gMeme.txts[gMeme.selectedTxtIndex]
         ) {
-            gMeme.txts[gMeme.selectedTxtIndex].text = textInput.value // Update text
+            gMeme.txts[gMeme.selectedTxtIndex].text = textInput.value
             renderMeme()
         } else {
-            // Handle cases where there is no valid selection
-            gMeme.selectedTxtIndex = null // Reset selected index
-            renderMeme(textInput.value) // Show the typed text on canvas without adding to the array
+            gMeme.selectedTxtIndex = null
+            renderMeme(textInput.value)
         }
     })
 
@@ -36,17 +35,18 @@ document.addEventListener('DOMContentLoaded', () => {
         if (event.key === 'Enter') {
             event.preventDefault()
             const trimmedText = textInput.value.trim()
+            gMeme.txts = gMeme.txts.filter(line => line.text.trim() !== '')
 
             if (trimmedText !== '') {
                 if (gMeme.selectedTxtIndex !== null) {
-                    gMeme.txts[gMeme.selectedTxtIndex].text = trimmedText // Update the text property
+                    gMeme.txts[gMeme.selectedTxtIndex].text = trimmedText
                 } else {
-                    addLineTxt(trimmedText) // Add a new line as an object
+                    addLineTxt(trimmedText)
                 }
                 textInput.value = ''
                 gMeme.selectedTxtIndex = null
-                textInput.setAttribute('disabled', true) // Disable the text input field
-                textInput.placeholder = 'Click meme to type/edit text' // Change placeholder when disabled
+                textInput.setAttribute('disabled', true)
+                textInput.placeholder = 'Click meme to type/edit text'
                 renderMeme()
             }
             textInput.setAttribute('disabled', true)
@@ -109,6 +109,7 @@ document.addEventListener('DOMContentLoaded', () => {
     document.querySelector('.deselect-switch-text-btn').addEventListener('click', () => {
         gMeme.selectedTxtIndex = null
         textInput.value = ''
+        gMeme.txts = gMeme.txts.filter(line => line.text.trim() !== '')
         renderMeme(textInput.value)
     })
 
@@ -132,20 +133,18 @@ document.addEventListener('DOMContentLoaded', () => {
                 y >= line.y - line.height &&
                 y <= line.y
             ) {
-                // Existing text is clicked
                 gMeme.selectedTxtIndex = index
-                textInput.value = line.text // Update the input field
+                textInput.value = line.text
                 existingTextClicked = true
                 renderMeme()
             }
         })
 
         if (!existingTextClicked) {
-            // Create a new text line at the clicked position
             addLineTxt('', x, y)
             gMeme.selectedTxtIndex = gMeme.txts.length - 1
             textInput.value = ''
-            textInput.focus() // Focus on the input field for immediate typing
+            textInput.focus()
             renderMeme()
         }
     })
@@ -165,6 +164,7 @@ document.addEventListener('DOMContentLoaded', () => {
                     textInput.setAttribute('disabled', true)
                     textInput.placeholder = 'Click meme to type/edit text'
                     gMeme.selectedTxtIndex = null
+                    gMeme.txts = gMeme.txts.filter(line => line.text.trim() !== '')
                     renderMeme()
                 }
             }
@@ -246,6 +246,8 @@ document.addEventListener('DOMContentLoaded', () => {
     document.querySelector('.random-meme-btn').addEventListener('click', () => {
         generateRandomMeme()
     })
+
+    /* -------------------------------------------------------------------------- */
 })
 
 /* -------------------------------------------------------------------------- */

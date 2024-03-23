@@ -79,7 +79,7 @@ function setColor(color) {
 function deleteSelectedLine() {
     if (gMeme.selectedTxtIndex !== null) {
         gMeme.txts.splice(gMeme.selectedTxtIndex, 1)
-        gMeme.selectedTxtIndex = null // Reset the selected text index
+        gMeme.selectedTxtIndex = null
     }
 }
 
