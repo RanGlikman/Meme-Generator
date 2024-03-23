@@ -35,14 +35,15 @@
     <div class="content">
 
         <section class="gallery">
-            <div class="gallery-container" id="gallery-section">
+            <div class="gallery-container" id="gallery-section"></div>
+            <button class="random-meme-btn">🎰</button>
         </section>
 
         <section class="editor">
             <canvas class="meme-canvas" width="500" height="500"></canvas>
             <div class="controls">
                 <input title="Text field is disabled. Please click the area of the meme where you wish to put text on"
-                    type="text" class="text-input" placeholder="Select a meme from gallery" disabled>
+                    type="text" class="text-input" placeholder="Click meme to type/edit text" disabled>
                 <div class="buttons">
                     <button title="Switch text line" class="switch-text-btn">⬆️⬇️</button>
                     <button title="Deselect text line" class="deselect-switch-text-btn">⤵️🖼️</button>
@@ -66,7 +67,7 @@
 
 
 
-
+    <script src="js/config.js"></script>
     <script src="js/memeService.js"></script>
     <script src="js/galleryController.js"></script>
     <script src="js/memeController.js"></script>

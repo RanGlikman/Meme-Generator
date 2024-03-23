@@ -6,11 +6,34 @@ let gMeme = {
     selectedImgId: 1,
     txts: [],
     selectedTxtIndex: 0,
-    size: 30,
+    size: 20,
     color: '#FFFFFF',
     fontFamily: 'Arial',
     highlightSelected: false,
 }
+
+/* -------------------------------------------------------------------------- */
+
+const memeLines = [
+    "When you realize it's only Tuesday",
+    'Trying to explain a meme to your parents',
+    'I woke up like this',
+    'Send coffee, stat!',
+    'Adulting is overrated',
+    "So you're telling me I have a chance",
+    'Not all who wander have WiFi',
+    'Hold my avocado',
+    "Life's a beach, and then you fry",
+    'I need a six-month holiday, twice a year',
+    'Why fall in love when you can fall asleep?',
+    'Running late, but still great!',
+    "I put the 'pro' in procrastinate",
+    'Monday has been canceled, go back to sleep',
+    "Trying to be a rainbow in someone's cloud",
+    'Decaf? No, thanks',
+    'Reality called, so I hung up',
+    "Can't adult today, try again tomorrow",
+]
 
 /* -------------------------------------------------------------------------- */
 
@@ -58,6 +81,29 @@ function deleteSelectedLine() {
         gMeme.txts.splice(gMeme.selectedTxtIndex, 1)
         gMeme.selectedTxtIndex = null // Reset the selected text index
     }
+}
+
+/* -------------------------------------------------------------------------- */
+
+function generateRandomMeme() {
+    const randomId = Math.floor(Math.random() * TOTAL_IMAGES) + 1
+    setImage(randomId)
+
+    gMeme.txts = []
+
+    let randomLineIndex = Math.floor(Math.random() * memeLines.length)
+    let randomLine1 = memeLines[randomLineIndex]
+
+    do {
+        randomLineIndex = Math.floor(Math.random() * memeLines.length)
+    } while (randomLineIndex === memeLines.indexOf(randomLine1))
+
+    let randomLine2 = memeLines[randomLineIndex]
+
+    addLineTxt(randomLine1, 250, 50)
+    addLineTxt(randomLine2, 250, 450)
+    gMeme.selectedTxtIndex = null
+    renderMeme()
 }
 
 /* -------------------------------------------------------------------------- */

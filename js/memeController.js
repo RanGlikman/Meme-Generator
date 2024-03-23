@@ -1,3 +1,7 @@
+'use strict'
+
+/* -------------------------------------------------------------------------- */
+
 function renderMeme(currentText = '') {
     console.log('Rendering meme with texts:', gMeme.txts)
     const canvas = document.querySelector('.meme-canvas')

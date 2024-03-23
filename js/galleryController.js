@@ -4,8 +4,7 @@
 
 function renderGallery() {
     const galleryContainer = document.querySelector('.gallery-container')
-    for (let i = 1; i <= 18; i++) {
-        //*  i = Numbers of images appearing in gallery
+    for (let i = 1; i <= TOTAL_IMAGES; i++) {
         const img = document.createElement('img')
         img.src = `img/memes/${i}.jpg`
         img.alt = 'Meme Image'
@@ -19,5 +18,3 @@ function renderGallery() {
 }
 
 /* -------------------------------------------------------------------------- */
-
-// Delivery4

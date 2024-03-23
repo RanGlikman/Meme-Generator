@@ -16,3 +16,38 @@
     max-width: 100%;
     height: auto;
 }
+
+@keyframes tilt-n-move-shaking {
+    0% {
+        transform: translate(0, 0) rotate(0deg);
+    }
+    25% {
+        transform: translate(5px, 5px) rotate(5deg);
+    }
+    50% {
+        transform: translate(0, 0) rotate(0eg);
+    }
+    75% {
+        transform: translate(-5px, 5px) rotate(-5deg);
+    }
+    100% {
+        transform: translate(0, 0) rotate(0deg);
+    }
+}
+
+.random-meme-btn {
+    position: fixed;
+    top: 10%;
+    left: 4%;
+    z-index: 1500;
+    cursor: pointer;
+    padding: 0;
+    font-size: 300%;
+    background-color: transparent;
+    border: none;
+    animation: tilt-n-move-shaking 1s infinite;
+}
+
+.random-meme-btn:hover {
+    animation: tilt-n-move-shaking 0.3s infinite;
+}

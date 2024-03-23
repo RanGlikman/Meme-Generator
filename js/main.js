@@ -242,6 +242,10 @@ document.addEventListener('DOMContentLoaded', () => {
     })
 
     /* -------------------------------------------------------------------------- */
+
+    document.querySelector('.random-meme-btn').addEventListener('click', () => {
+        generateRandomMeme()
+    })
 })
 
 /* -------------------------------------------------------------------------- */

@@ -1,0 +1,1 @@
+const TOTAL_IMAGES = 18;
