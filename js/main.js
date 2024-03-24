@@ -62,6 +62,9 @@ document.addEventListener('DOMContentLoaded', () => {
     /* -------------------------------------------------------------------------- */
 
     document.querySelector('.download-btn').addEventListener('click', () => {
+        textInput.removeAttribute('disabled')
+        gMeme.selectedTxtIndex = null
+        renderMeme()
         const dataURL = canvas.toDataURL('image/png')
         document.querySelector('.download-btn').href = dataURL
     })
