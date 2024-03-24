@@ -22,23 +22,12 @@ document.addEventListener('DOMContentLoaded', () => {
 
     textInput.addEventListener('keydown', event => {
         if (event.key === 'Enter') {
-            event.preventDefault()
-            const trimmedText = textInput.value.trim()
             gMeme.txts = gMeme.txts.filter(line => line.text.trim() !== '')
-
-            if (trimmedText !== '') {
-                if (gMeme.selectedTxtIndex !== null) {
-                    gMeme.txts[gMeme.selectedTxtIndex].text = trimmedText
-                } else {
-                    addLineTxt(trimmedText)
-                }
-                textInput.value = ''
-                gMeme.selectedTxtIndex = null
-                textInput.setAttribute('disabled', true)
-                textInput.placeholder = 'Click meme to type/edit text'
-                renderMeme()
-            }
+            textInput.value = ''
+            gMeme.selectedTxtIndex = null
             textInput.setAttribute('disabled', true)
+            textInput.placeholder = 'Click meme to type/edit text'
+            renderMeme()
         }
     })
 
