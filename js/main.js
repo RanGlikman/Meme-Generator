@@ -68,8 +68,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     /* -------------------------------------------------------------------------- */
 
-    const switchTextBtn = document.querySelector('.switch-text-btn')
-    switchTextBtn.addEventListener('click', () => {
+    document.querySelector('.switch-text-btn').addEventListener('click', () => {
         if (gMeme.txts.length > 0) {
             gMeme.selectedTxtIndex = (gMeme.selectedTxtIndex + 1) % gMeme.txts.length
             textInput.removeAttribute('disabled')
