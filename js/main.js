@@ -11,14 +11,14 @@ document.addEventListener('DOMContentLoaded', () => {
     let dragOffsetX = 0
     let dragOffsetY = 0
 
-    /* -------------------------------------------------------------------------- */
+    /* ------------------------------ Text entering ----------------------------- */
 
     textInput.addEventListener('input', () => {
         gMeme.txts[gMeme.selectedTxtIndex].text = textInput.value
         renderMeme()
     })
 
-    /* -------------------------------------------------------------------------- */
+    /* --------------------------- Pressing Enter key --------------------------- */
 
     textInput.addEventListener('keydown', event => {
         if (event.key === 'Enter') {
@@ -31,7 +31,7 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     })
 
-    /* -------------------------------------------------------------------------- */
+    /* --------------------------- Changing text color -------------------------- */
 
     const colorInput = document.querySelector('.color-input')
     colorInput.addEventListener('change', () => {
@@ -39,7 +39,7 @@ document.addEventListener('DOMContentLoaded', () => {
         renderMeme(textInput.value)
     })
 
-    /* -------------------------------------------------------------------------- */
+    /* ------------------------------- Resize text ------------------------------ */
 
     document.querySelector('.btn-increase-font').addEventListener('click', () => {
         if (gMeme.txts[gMeme.selectedTxtIndex]) {
@@ -49,8 +49,6 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     })
 
-    /* -------------------------------------------------------------------------- */
-
     document.querySelector('.btn-decrease-font').addEventListener('click', () => {
         if (gMeme.txts[gMeme.selectedTxtIndex] && gMeme.txts[gMeme.selectedTxtIndex].height > 10) {
             gMeme.txts[gMeme.selectedTxtIndex].height -= 2
@@ -59,7 +57,7 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     })
 
-    /* -------------------------------------------------------------------------- */
+    /* ---------------------------- Downloading meme ---------------------------- */
 
     document.querySelector('.download-btn').addEventListener('click', () => {
         textInput.removeAttribute('disabled')
@@ -69,7 +67,7 @@ document.addEventListener('DOMContentLoaded', () => {
         document.querySelector('.download-btn').href = dataURL
     })
 
-    /* -------------------------------------------------------------------------- */
+    /* ------------------ Switching between text lines on meme ------------------ */
 
     document.querySelector('.switch-text-btn').addEventListener('click', () => {
         if (gMeme.txts.length > 0) {
@@ -81,7 +79,7 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     })
 
-    /* -------------------------------------------------------------------------- */
+    /* ------------------ Deselecting active text line on meme ------------------ */
 
     document.querySelector('.deselect-switch-text-btn').addEventListener('click', () => {
         textInput.value = ''
@@ -92,7 +90,7 @@ document.addEventListener('DOMContentLoaded', () => {
         renderMeme()
     })
 
-    /* -------------------------------------------------------------------------- */
+    /* --------------------------- Clicking on Canvas --------------------------- */
 
     canvas.addEventListener('click', e => {
         const rect = canvas.getBoundingClientRect()
@@ -126,7 +124,7 @@ document.addEventListener('DOMContentLoaded', () => {
         renderMeme()
     })
 
-    /* -------------------------------------------------------------------------- */
+    /* ---------------------------- Clicking on body ---------------------------- */
 
     document.body.addEventListener('click', function (event) {
         if (
@@ -143,14 +141,15 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     })
 
-    /* -------------------------------------------------------------------------- */
+    /* ----------------------- Clicking on Gallery navbar item ---------------------- */
 
     document.querySelector('a[data-target="gallery"]').addEventListener('click', event => {
         gMeme.txts = []
         document.querySelector('.gallery').style.display = 'block'
         document.querySelector('.editor').style.display = 'none'
     })
-    /* -------------------------------------------------------------------------- */
+
+    /* ----------------------- Deleting selected text line ---------------------- */
 
     document.querySelector('.btn-delete-text').addEventListener('click', () => {
         deleteSelectedLine()
@@ -161,7 +160,7 @@ document.addEventListener('DOMContentLoaded', () => {
         renderMeme()
     })
 
-    /* -------------------------------------------------------------------------- */
+    /* --------------------------- Change font family --------------------------- */
 
     document.querySelector('.font-family-select').addEventListener('change', event => {
         gMeme.fontFamily = event.target.value
@@ -187,7 +186,7 @@ document.addEventListener('DOMContentLoaded', () => {
             ) {
                 isDragging = true
                 dragIndex = index
-                gMeme.selectedTxtIndex = index // Select the line for editing (by index)
+                gMeme.selectedTxtIndex = index
 
                 dragOffsetX = x - line.x
                 dragOffsetY = y - line.y
@@ -212,7 +211,7 @@ document.addEventListener('DOMContentLoaded', () => {
         dragIndex = -1
     })
 
-    /* -------------------------------------------------------------------------- */
+    /* -------------------------- Random meme creation -------------------------- */
 
     document.querySelector('.random-meme-btn').addEventListener('click', () => {
         generateRandomMeme()
