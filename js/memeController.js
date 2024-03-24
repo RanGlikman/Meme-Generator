@@ -15,7 +15,6 @@ function renderMeme(currentText = '') {
         ctx.clearRect(0, 0, canvas.width, canvas.height)
         ctx.drawImage(img, 0, 0, canvas.width, canvas.height)
 
-        ctx.font = `${meme.size}px Arial`
         ctx.textAlign = 'center'
 
         document.querySelector('.editor').style.display = 'flex'

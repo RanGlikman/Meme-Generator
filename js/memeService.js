@@ -8,7 +8,7 @@ let gMeme = {
     selectedTxtIndex: 0,
     size: 20,
     color: '#FFFFFF',
-    fontFamily: 'Arial',
+    fontFamily: 'Impact',
     highlightSelected: false,
 }
 
