@@ -84,10 +84,12 @@ document.addEventListener('DOMContentLoaded', () => {
     /* -------------------------------------------------------------------------- */
 
     document.querySelector('.deselect-switch-text-btn').addEventListener('click', () => {
-        gMeme.selectedTxtIndex = null
         textInput.value = ''
+        textInput.setAttribute('disabled', true)
+        textInput.placeholder = 'Click meme to type/edit text'
+        gMeme.selectedTxtIndex = null
         gMeme.txts = gMeme.txts.filter(line => line.text.trim() !== '')
-        renderMeme(textInput.value)
+        renderMeme()
     })
 
     /* -------------------------------------------------------------------------- */
