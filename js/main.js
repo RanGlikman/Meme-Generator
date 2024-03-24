@@ -175,6 +175,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     document.querySelector('a[data-target="gallery"]').addEventListener('click', event => {
         event.preventDefault()
+        gMeme.txts = []
         document.querySelector('.gallery').style.display = 'block'
         document.querySelector('.editor').style.display = 'none'
     })
