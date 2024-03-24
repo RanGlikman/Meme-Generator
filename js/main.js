@@ -128,29 +128,24 @@ document.addEventListener('DOMContentLoaded', () => {
 
     /* -------------------------------------------------------------------------- */
 
-    document.body.addEventListener(
-        'click',
-        function (event) {
-            if (
-                !event.target.matches(
-                    '.text-input, .meme-canvas, .controls *, .controls, .navbar, .navbar *'
-                )
-            ) {
-                textInput.value = ''
-                textInput.setAttribute('disabled', true)
-                textInput.placeholder = 'Click meme to type/edit text'
-                gMeme.selectedTxtIndex = null
-                gMeme.txts = gMeme.txts.filter(line => line.text.trim() !== '')
-                renderMeme()
-            }
-        },
-        true
-    )
+    document.body.addEventListener('click', function (event) {
+        if (
+            !event.target.matches(
+                '.text-input, .meme-canvas, .controls *, .controls, .navbar, .navbar *'
+            )
+        ) {
+            textInput.value = ''
+            textInput.setAttribute('disabled', true)
+            textInput.placeholder = 'Click meme to type/edit text'
+            gMeme.selectedTxtIndex = null
+            gMeme.txts = gMeme.txts.filter(line => line.text.trim() !== '')
+            renderMeme()
+        }
+    })
 
     /* -------------------------------------------------------------------------- */
 
     document.querySelector('a[data-target="gallery"]').addEventListener('click', event => {
-        event.preventDefault()
         gMeme.txts = []
         document.querySelector('.gallery').style.display = 'block'
         document.querySelector('.editor').style.display = 'none'
