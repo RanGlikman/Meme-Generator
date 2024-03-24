@@ -126,6 +126,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
         // Check if any existing text is selected, if not, create a new line
         let existingTextClicked = false
+        gMeme.txts = gMeme.txts.filter(line => line.text.trim() !== '')
         gMeme.txts.forEach((line, index) => {
             if (
                 x >= line.x - line.width / 2 &&
@@ -159,14 +160,12 @@ document.addEventListener('DOMContentLoaded', () => {
                     '.text-input, .meme-canvas, .controls *, .controls, .navbar, .navbar *'
                 )
             ) {
-                if (textInput.value.trim() !== '') {
-                    textInput.value = ''
-                    textInput.setAttribute('disabled', true)
-                    textInput.placeholder = 'Click meme to type/edit text'
-                    gMeme.selectedTxtIndex = null
-                    gMeme.txts = gMeme.txts.filter(line => line.text.trim() !== '')
-                    renderMeme()
-                }
+                textInput.value = ''
+                textInput.setAttribute('disabled', true)
+                textInput.placeholder = 'Click meme to type/edit text'
+                gMeme.selectedTxtIndex = null
+                gMeme.txts = gMeme.txts.filter(line => line.text.trim() !== '')
+                renderMeme()
             }
         },
         true
