@@ -2,6 +2,8 @@
 
 /* -------------------------------------------------------------------------- */
 
+const TOTAL_IMAGES = 18
+
 function renderGallery() {
     const galleryContainer = document.querySelector('.gallery-container')
     for (let i = 1; i <= TOTAL_IMAGES; i++) {
