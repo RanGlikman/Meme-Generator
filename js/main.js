@@ -97,11 +97,6 @@ document.addEventListener('DOMContentLoaded', () => {
         const x = e.clientX - rect.left
         const y = e.clientY - rect.top
 
-        textInput.removeAttribute('disabled')
-        textInput.placeholder = 'Enter your meme here'
-        textInput.focus()
-
-        // Check if any existing text is selected, if not, create a new line
         let existingTextClicked = false
         gMeme.txts = gMeme.txts.filter(line => line.text.trim() !== '')
         gMeme.txts.forEach((line, index) => {
@@ -114,7 +109,6 @@ document.addEventListener('DOMContentLoaded', () => {
                 gMeme.selectedTxtIndex = index
                 textInput.value = line.text
                 existingTextClicked = true
-                renderMeme()
             }
         })
 
@@ -122,9 +116,12 @@ document.addEventListener('DOMContentLoaded', () => {
             addLineTxt('', x, y)
             gMeme.selectedTxtIndex = gMeme.txts.length - 1
             textInput.value = ''
-            textInput.focus()
-            renderMeme()
         }
+
+        textInput.removeAttribute('disabled')
+        textInput.placeholder = 'Enter your meme text here'
+        textInput.focus()
+        renderMeme()
     })
 
     /* -------------------------------------------------------------------------- */
