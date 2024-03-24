@@ -14,19 +14,8 @@ document.addEventListener('DOMContentLoaded', () => {
     /* -------------------------------------------------------------------------- */
 
     textInput.addEventListener('input', () => {
-        // Ensure the index is within bounds and the element exists
-        if (
-            gMeme.selectedTxtIndex !== null &&
-            gMeme.selectedTxtIndex >= 0 &&
-            gMeme.selectedTxtIndex < gMeme.txts.length &&
-            gMeme.txts[gMeme.selectedTxtIndex]
-        ) {
-            gMeme.txts[gMeme.selectedTxtIndex].text = textInput.value
-            renderMeme()
-        } else {
-            gMeme.selectedTxtIndex = null
-            renderMeme(textInput.value)
-        }
+        gMeme.txts[gMeme.selectedTxtIndex].text = textInput.value
+        renderMeme()
     })
 
     /* -------------------------------------------------------------------------- */
