@@ -61,10 +61,9 @@ document.addEventListener('DOMContentLoaded', () => {
 
     /* -------------------------------------------------------------------------- */
 
-    const downloadBtn = document.querySelector('.download-btn')
-    downloadBtn.addEventListener('click', () => {
+    document.querySelector('.download-btn').addEventListener('click', () => {
         const dataURL = canvas.toDataURL('image/png')
-        downloadBtn.href = dataURL
+        document.querySelector('.download-btn').href = dataURL
     })
 
     /* -------------------------------------------------------------------------- */
