@@ -42,8 +42,9 @@ document.addEventListener('DOMContentLoaded', () => {
     /* -------------------------------------------------------------------------- */
 
     document.querySelector('.btn-increase-font').addEventListener('click', () => {
-        if (gMeme.selectedTxtIndex !== null && gMeme.txts[gMeme.selectedTxtIndex]) {
+        if (gMeme.txts[gMeme.selectedTxtIndex]) {
             gMeme.txts[gMeme.selectedTxtIndex].height += 2
+            textInput.focus()
             renderMeme()
         }
     })
@@ -51,12 +52,9 @@ document.addEventListener('DOMContentLoaded', () => {
     /* -------------------------------------------------------------------------- */
 
     document.querySelector('.btn-decrease-font').addEventListener('click', () => {
-        if (
-            gMeme.selectedTxtIndex !== null &&
-            gMeme.txts[gMeme.selectedTxtIndex] &&
-            gMeme.txts[gMeme.selectedTxtIndex].height > 10
-        ) {
+        if (gMeme.txts[gMeme.selectedTxtIndex] && gMeme.txts[gMeme.selectedTxtIndex].height > 10) {
             gMeme.txts[gMeme.selectedTxtIndex].height -= 2
+            textInput.focus()
             renderMeme()
         }
     })
