@@ -15,20 +15,19 @@ function renderMeme(currentText = '') {
         ctx.clearRect(0, 0, canvas.width, canvas.height)
         ctx.drawImage(img, 0, 0, canvas.width, canvas.height)
 
-        ctx.textAlign = 'center'
-
         document.querySelector('.editor').style.display = 'flex'
         document.querySelector('.gallery').style.display = 'none'
 
         meme.txts.forEach((line, index) => {
-            ctx.font = `${line.height}px ${line.fontFamily}`
-
-            const yPos = line.y
+            ctx.font = `bold ${line.height}px ${line.fontFamily}`
             ctx.fillStyle = meme.color
+            ctx.textAlign = 'center'
+            ctx.strokeStyle = 'black'
+            ctx.lineWidth = 1
             ctx.fillText(line.text, line.x, line.y)
 
             line.width = ctx.measureText(line.text).width
-            const textX = line.x - line.width / 2
+            ctx.strokeText(line.text, line.x, line.y)
 
             if (index === gMeme.selectedTxtIndex) {
                 ctx.strokeStyle = 'red'

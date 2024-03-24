@@ -6,7 +6,7 @@ let gMeme = {
     selectedImgId: 1,
     txts: [],
     selectedTxtIndex: 0,
-    size: 20,
+    size: 25,
     color: '#FFFFFF',
     fontFamily: 'Impact',
     highlightSelected: false,
