@@ -219,21 +219,25 @@ document.addEventListener('DOMContentLoaded', () => {
 
     /* ---------------------------- Add emoji sticker --------------------------- */
 
-    document.querySelector('.emoji-btn').addEventListener('click', event => {
-        const textInput = document.querySelector('.text-input')
+    document.querySelectorAll('.emoji-btn').forEach(button => {
+        button.addEventListener('click', event => {
+            const textInput = document.querySelector('.text-input')
 
-        if (!textInput.disabled) {
-            const button = event.target
-            let textToAppend = button.textContent
-            textInput.value += textToAppend
-            gMeme.txts[gMeme.selectedTxtIndex].text = textInput.value
-            textInput.value = ''
-            textInput.setAttribute('disabled', true)
-            textInput.placeholder = 'Click meme to type/edit text'
-            gMeme.selectedTxtIndex = null
-            gMeme.txts = gMeme.txts.filter(line => line.text.trim() !== '')
-            renderMeme()
-        }
+            if (!textInput.disabled) {
+                const button = event.target
+                let textToAppend = button.textContent
+                textInput.value += textToAppend
+                if (gMeme.txts[gMeme.selectedTxtIndex] !== undefined) {
+                    gMeme.txts[gMeme.selectedTxtIndex].text = textInput.value
+                    textInput.value = ''
+                    textInput.setAttribute('disabled', true)
+                    textInput.placeholder = 'Click meme to type/edit text'
+                    gMeme.selectedTxtIndex = null
+                    gMeme.txts = gMeme.txts.filter(line => line.text.trim() !== '')
+                    renderMeme()
+                }
+            }
+        })
     })
 
     /* -------------------------------------------------------------------------- */
