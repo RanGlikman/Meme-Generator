@@ -30,16 +30,18 @@
     }
     .editor {
         flex-direction: column;
-        align-items: flex-start;
+        align-items: center;
     }
     .meme-canvas {
         margin-bottom: 10px;
+        align-items: center;
     }
     .navbar a {
         padding-right: 0;
     }
     .content {
         padding-top: 30px;
+        width: 90%;
     }
 
     .controls {
