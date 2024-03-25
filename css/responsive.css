@@ -55,4 +55,8 @@
     hr {
         margin: 10px 0;
     }
+
+    .header {
+        padding: 0px 0px 0px 15px;
+    }
 }
