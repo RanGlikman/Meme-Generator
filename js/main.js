@@ -219,13 +219,21 @@ document.addEventListener('DOMContentLoaded', () => {
 
     /* ---------------------------- Add emoji sticker --------------------------- */
 
-    document.querySelector('.emoji-btn').addEventListener('click', () => {
-        const textInput = document.querySelector('.emoji-btn')
-        textInput.value += '🤩'
-        gMeme.txts[gMeme.selectedTxtIndex].text = textInput.value
-        gMeme.selectedTxtIndex = null
-        textInput.value = ''
-        renderMeme()
+    document.querySelector('.emoji-btn').addEventListener('click', event => {
+        const textInput = document.querySelector('.text-input')
+
+        if (!textInput.disabled) {
+            const button = event.target
+            let textToAppend = button.textContent
+            textInput.value += textToAppend
+            gMeme.txts[gMeme.selectedTxtIndex].text = textInput.value
+            textInput.value = ''
+            textInput.setAttribute('disabled', true)
+            textInput.placeholder = 'Click meme to type/edit text'
+            gMeme.selectedTxtIndex = null
+            gMeme.txts = gMeme.txts.filter(line => line.text.trim() !== '')
+            renderMeme()
+        }
     })
 
     /* -------------------------------------------------------------------------- */
