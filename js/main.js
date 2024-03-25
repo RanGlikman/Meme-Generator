@@ -217,6 +217,17 @@ document.addEventListener('DOMContentLoaded', () => {
         generateRandomMeme()
     })
 
+    /* ---------------------------- Add emoji sticker --------------------------- */
+
+    document.querySelector('.emoji-btn').addEventListener('click', () => {
+        const textInput = document.querySelector('.emoji-btn')
+        textInput.value += '🤩'
+        gMeme.txts[gMeme.selectedTxtIndex].text = textInput.value
+        gMeme.selectedTxtIndex = null
+        textInput.value = ''
+        renderMeme()
+    })
+
     /* -------------------------------------------------------------------------- */
 })
 
