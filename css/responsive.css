@@ -49,4 +49,8 @@
     .gallery-container {
         padding-top: 35px;
     }
+
+    hr {
+        margin: 10px 0;
+    }
 }
