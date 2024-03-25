@@ -16,14 +16,14 @@ canvas {
     margin-right: 20px;
 }
 
-.buttons {
+.buttons, .stickers {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
     gap: 10px;
 }
 
-.buttons *,
+.buttons *, .stickers *,
 .color-input {
     text-decoration: none;
     color: black;

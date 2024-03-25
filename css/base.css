@@ -22,3 +22,8 @@ body {
 h1 {
     color: #333;
 }
+
+hr {
+    border-top: 1px solid #ccc;
+    margin: 0px 0;
+}
