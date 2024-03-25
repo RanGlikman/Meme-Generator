@@ -35,17 +35,18 @@
     .meme-canvas {
         margin-bottom: 10px;
         align-items: center;
+        width: 90%;
     }
     .navbar a {
         padding-right: 0;
     }
     .content {
         padding-top: 30px;
-        width: 90%;
     }
 
     .controls {
         gap: 0;
+        width: 90%;
     }
 
     .gallery-container {
