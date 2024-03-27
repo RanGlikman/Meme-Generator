@@ -176,8 +176,10 @@ document.addEventListener('DOMContentLoaded', () => {
 
     canvas.addEventListener('mousedown', function (e) {
         const rect = canvas.getBoundingClientRect()
-        const x = e.clientX - rect.left
-        const y = e.clientY - rect.top
+        const scaleX = canvas.width / rect.width
+        const scaleY = canvas.height / rect.height
+        const x = (e.clientX - rect.left) * scaleX
+        const y = (e.clientY - rect.top) * scaleY
 
         gMeme.txts.forEach((line, index) => {
             if (
@@ -199,8 +201,10 @@ document.addEventListener('DOMContentLoaded', () => {
     canvas.addEventListener('mousemove', function (e) {
         if (isDragging) {
             const rect = canvas.getBoundingClientRect()
-            const x = e.clientX - rect.left
-            const y = e.clientY - rect.top
+            const scaleX = canvas.width / rect.width
+            const scaleY = canvas.height / rect.height
+            const x = (e.clientX - rect.left) * scaleX
+            const y = (e.clientY - rect.top) * scaleY
 
             gMeme.txts[dragIndex].x = x - dragOffsetX
             gMeme.txts[dragIndex].y = y - dragOffsetY
