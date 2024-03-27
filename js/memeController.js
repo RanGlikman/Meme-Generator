@@ -32,9 +32,12 @@ function renderMeme(currentText = '') {
             if (index === gMeme.selectedTxtIndex) {
                 ctx.strokeStyle = 'red'
                 ctx.lineWidth = 2
-                const selectionBoxX = line.x - line.width / 2
-                const selectionBoxY = line.y - line.height
-                ctx.strokeRect(selectionBoxX, selectionBoxY, line.width, line.height)
+                const padding = 10
+                const selectionBoxX = line.x - line.width / 2 - padding
+                const selectionBoxY = line.y - line.height - padding
+                const selectionBoxWidth = line.width + 2 * padding
+                const selectionBoxHeight = line.height + 2 * padding
+                ctx.strokeRect(selectionBoxX, selectionBoxY, selectionBoxWidth, selectionBoxHeight)
             }
         })
 
