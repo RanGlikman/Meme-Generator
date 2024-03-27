@@ -39,7 +39,7 @@ document.addEventListener('DOMContentLoaded', () => {
         renderMeme(textInput.value)
     })
 
-    /* ------------------------------- Resize text ------------------------------ */
+    /* ----------------- font increase and font decrease buttons ---------------- */
 
     document.querySelector('.btn-increase-font').addEventListener('click', () => {
         if (gMeme.txts[gMeme.selectedTxtIndex]) {
@@ -55,6 +55,19 @@ document.addEventListener('DOMContentLoaded', () => {
             textInput.focus()
             renderMeme()
         }
+    })
+
+    /* ---------------------------- Font size button ---------------------------- */
+
+    document.querySelector('.font-size-select').addEventListener('change', function () {
+        const newSize = parseInt(this.value)
+
+        if (gMeme.txts[gMeme.selectedTxtIndex]) {
+            gMeme.txts[gMeme.selectedTxtIndex].height = newSize
+        }
+        textInput.focus()
+        gMeme.size = newSize
+        renderMeme()
     })
 
     /* ---------------------------- Downloading meme ---------------------------- */

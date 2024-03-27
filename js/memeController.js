@@ -52,6 +52,13 @@ function renderMeme(currentText = '') {
     } else {
         img.onload = drawContent
     }
+
+    if (gMeme.txts[gMeme.selectedTxtIndex]) {
+        document.querySelector('.font-size-select').value =
+            gMeme.txts[gMeme.selectedTxtIndex].height.toString()
+    } else {
+        document.querySelector('.font-size-select').value = gMeme.size.toString()
+    }
 }
 
 /* -------------------------------------------------------------------------- */
