@@ -11,6 +11,20 @@
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
+.gallery-img:hover {
+    animation: subtlePulse 0.5s ease-in-out infinite;
+}
+
+@keyframes subtlePulse {
+    0%,
+    100% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.02);
+    }
+}
+
 .gallery-container img,
 .meme-canvas {
     max-width: 100%;
