@@ -255,6 +255,17 @@ document.addEventListener('DOMContentLoaded', () => {
         })
     })
 
+    /* ------------------------- Add line of text button ------------------------ */
+
+    document.querySelector('.enable-text-input-btn').addEventListener('click', () => {
+        textInput.disabled = false
+        textInput.focus()
+        textInput.value = ''
+        textInput.placeholder = 'Enter your meme text here'
+        addLineTxt(textInput.value, canvas.width / 2, canvas.height - 50)
+        renderMeme()
+    })
+
     /* -------------------------------------------------------------------------- */
 })
 
