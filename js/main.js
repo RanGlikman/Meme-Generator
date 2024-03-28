@@ -139,14 +139,10 @@ document.addEventListener('DOMContentLoaded', () => {
         renderMeme()
     })
 
-    /* ---------------------------- Clicking on body ---------------------------- */
+    /* -------------------- Clicking on body to deselect text ------------------- */
 
     document.body.addEventListener('click', function (event) {
-        if (
-            !event.target.matches(
-                '.text-input, .meme-canvas, .controls *, .controls, .navbar, .navbar *'
-            )
-        ) {
+        if (!event.target.matches('.meme-canvas, .controls *, .navbar *')) {
             textInput.value = ''
             textInput.setAttribute('disabled', true)
             textInput.placeholder = 'Click meme to type/edit text'
